@@ -1,0 +1,13 @@
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    restart: always
+    environment:
+      PMA_HOST: "${PMA_DB:-mysql}"
+      PMA_USER: "root"
+      PMA_PASSWORD: "${DB_PASSWORD}"
+    ports:
+      - "9020:80"
+    networks:
+      - app-network
+    depends_on:
+      - "${PMA_DB:-mysql}"

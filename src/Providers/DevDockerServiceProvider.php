@@ -3,6 +3,7 @@
 namespace VexerVox\DevDocker\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use VexerVox\DevDocker\Console\InstallCommand;
 
 class DevDockerServiceProvider extends ServiceProvider
 {
@@ -13,9 +14,15 @@ class DevDockerServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-//        $this->publishes([
-//            __DIR__.'/../config/dev-docker.php' => config_path('dev-docker.php'),
-//        ]);
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                InstallCommand::class,
+            ]);
+        }
+
+        $this->publishes([
+            __DIR__ . '/../../docker/' => base_path('docker'),
+        ], 'docker-folder');
     }
 
     /**
