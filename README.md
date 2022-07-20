@@ -16,7 +16,7 @@ I used Sail package quite a bit, and I wanted to make something similar to it, b
 1. Install DevDocker with Composer:
 
 ```
-1. composer require devdocker/devdocker --dev
+1. composer require devdocker/dev-docker --dev
 ```
 
 
