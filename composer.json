@@ -1,0 +1,24 @@
+{
+    "name": "vexervox/dev-docker",
+    "description": "Docker development environment for laravel",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vladislav Kushch",
+            "email": "kushch.vladislav@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "VexerVox\\DevDocker\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "VexerVox\\DevDocker\\Providers\\DevDockerServiceProvider"
+            ]
+        }
+    }
+}
