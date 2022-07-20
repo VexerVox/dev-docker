@@ -20,7 +20,7 @@ I used Sail package quite a bit, and I wanted to make something similar to it, b
 ```
 
 
-2. Choose services you want to use:
+2. Run install command and choose services you want to use:
 
 ```
 php artisan devdocker:install
