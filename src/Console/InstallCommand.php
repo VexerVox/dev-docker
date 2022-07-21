@@ -65,9 +65,6 @@ class InstallCommand extends Command
      */
     private function install(bool $force = false): void
     {
-        $this->publishConfiguration($force);
-        $this->info('Published configuration');
-
         $services = $this->choice('Which services would you like to install?', [
             '-',
             'mysql',
@@ -77,6 +74,9 @@ class InstallCommand extends Command
             'mailhog',
             'phpmyadmin',
         ], null, null, true);
+
+        $this->publishConfiguration($force);
+        $this->info('Published configuration');
 
         $this->info('Generating Docker Compose file...');
 
