@@ -51,3 +51,7 @@ PMA_DB=mysql
 PMA_DB=mariadb
 ```
 By default, it is `mysql`.
+
+## Updating
+
+When update your package version with Composer, you might need to run `docker-compose up -d --build` to rebuild the php container. 
