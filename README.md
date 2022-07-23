@@ -54,4 +54,10 @@ By default, it is `mysql`.
 
 ## Updating
 
-When update your package version with Composer, you might need to run `docker-compose up -d --build` to rebuild the php container. 
+When update your package version with Composer, you need to run command to republish new configs and update image version.
+
+```
+php artisan devdocker:update
+```
+
+Warning! This might override your current configs and changes you made to docker-compose.yml and files in docker directory.
