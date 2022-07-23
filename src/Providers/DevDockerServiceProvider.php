@@ -4,6 +4,7 @@ namespace VexerVox\DevDocker\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use VexerVox\DevDocker\Console\InstallCommand;
+use VexerVox\DevDocker\Console\UpdateCommand;
 
 class DevDockerServiceProvider extends ServiceProvider
 {
@@ -17,6 +18,7 @@ class DevDockerServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->commands([
                 InstallCommand::class,
+                UpdateCommand::class,
             ]);
         }
 
