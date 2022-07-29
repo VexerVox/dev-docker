@@ -61,7 +61,7 @@ class UpdateCommand extends Command
 
         $newDockerCompose = preg_replace(
             '/\"vexervox\/php:.*\"/',
-            "\"vexervox/php:$phpVersion-$packageVersion\"",
+            "\"vexervox/php:$phpVersion--$packageVersion\"",
             $dockerCompose
         );
 

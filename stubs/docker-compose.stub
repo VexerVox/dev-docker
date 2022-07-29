@@ -14,7 +14,7 @@ services:
     depends_on:
       - php
   php:
-    image: "vexervox/php:8.1-1.0.3"
+    image: "vexervox/php:8.1--1.1"
     environment:
         - DEVDOCKER_PHP_VERSION="8.1"
     restart: always
