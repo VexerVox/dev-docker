@@ -98,16 +98,28 @@ class UpdateCommand extends Command
         $matches = [];
 
         preg_match(
-            '/\/php:[^\n\"-]*/',
+            '/DEVDOCKER_PHP_VERSION=[\"\'].*[\"\']/',
             $dockerCompose,
             $matches
         );
 
-        if (empty($matches[0])) {
+        if (empty($matches)) {
             return 'unknown';
         }
 
-        return str_replace('/php:', '', $matches[0]);
+        preg_match(
+            '/[\"\'].*[\"\']/',
+            $matches[0],
+            $matches
+        );
+
+        if (empty($matches)) {
+            return 'unknown';
+        }
+
+        $match = preg_replace('/[\"\']/', '', $matches[0]);
+
+        return str_replace('/php:', '', $match);
     }
 
     /**
