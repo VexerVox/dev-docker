@@ -8,10 +8,11 @@ RUN apk update && apk add \
     zip \
     unzip
 
-RUN docker-php-ext-install pdo_mysql exif pcntl bcmath gd
+RUN apk add --no-cache pcre-dev $PHPIZE_DEPS
+RUN pear config-set php_ini "$PHP_INI_DIR"
 
-RUN apk add --no-cache pcre-dev $PHPIZE_DEPS \
-        && pecl install redis \
-        && docker-php-ext-enable redis.so
+RUN docker-php-ext-install pdo_mysql exif pcntl bcmath gd
+RUN pecl install redis && docker-php-ext-enable redis.so
+RUN pecl install mongodb && docker-php-ext-enable mongodb.so
 
 COPY --from=composer:2.3.9 /usr/bin/composer /usr/local/bin/composer
